@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verwaltung</title>
+</head>
+
+<body>
+    <form action="/logout" method="get">
+        <button>Ausloggen</button>
+    </form>
+    <br>
+    <h1>Adminpage</h1>
+    <br>
+    <table>
+        {% for entry in entries %}
+        <tr>
+            <td>{{ entry.user }}</td>
+            <td>{{ entry.message }}
+            <td>
+            <td>{{ entry.date}}</td>
+            <td><a href="/delete/{{entry.user}}">löschen</a></td>
+        </tr>
+        {% endfor %}
+        </div>
+</body>
+
+</html>

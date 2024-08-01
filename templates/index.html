@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Gästebuch</title>
+</head>
+
+<body>
+    <a href="/admin">Adminseite</a>
+    <h1>Gästebuch</h1>
+    <h3>Das sagen meine Besucher:</h3>
+    <div class="guestbook">
+        {% for entry in entries %}
+        <div>
+            <p id="header"><strong>{{ entry.user }}</strong> schrieb am {{ entry.date}}</p>
+            <p id="message">{{ entry.message }}</p><br>
+        </div>
+        <div class="spacer"></div>
+        {% endfor %}
+    </div>
+    <form action="/submit" method="get">
+        <button type="submit">Eintrag hinzufügen</button><br>
+    </form>
+</body>
+
+</html>

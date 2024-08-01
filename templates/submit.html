@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gästebuch</title>
+</head>
+
+<body>
+    <h1>Gästebuch</h1>
+    <h3>Danke für deinen Eintrag!</h3>
+    <form action="/submit" method="post">
+        <!-- 1 -->
+        <label for="username">Dein Name:</label><br>
+        <!-- 2 -->
+        <input type="text" name="username" id="username"><br>
+        <label for="message">Was ich sagen möchte:</label><br>
+        <textarea id="message" name="message" rows="4" cols="50"></textarea><br>
+        <!-- 3 -->
+        <button type="submit">Absenden</button><br>
+    </form>
+</body>
+
+</html>

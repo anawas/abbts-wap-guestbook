@@ -1,0 +1,19 @@
+.guestbook {
+    width: 40%;
+    background-color: aliceblue;
+}
+
+.spacer {
+    background-color: white;
+    height: 10px;
+}
+#header {
+    background-color: beige;
+    padding-top: 1.2em;
+    padding-bottom: 1.2em;
+}
+
+#message {
+    background-color: aliceblue;
+    margin-bottom: 30px;
+}
