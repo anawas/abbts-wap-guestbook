@@ -53,11 +53,11 @@ def submit():
     if request.method == "GET":
         return render_template("submit.html")
     # Lese den Wert des Eingabefelds mit name="username"
-    username = request.form['username']
+    username = request.form["username"]
     if username == "":
         username = "anonymous"
 
-    message = request.form['message']
+    message = request.form["message"]
 
     # Hier die Daten z.B. in eine DB speichern
     db.add_entry(username, message, datetime.now())
@@ -65,5 +65,5 @@ def submit():
 
 
 if __name__ == "__main__":
-    context = ('certificates/mydomain.crt', 'certificates/mydomain.key')
+    context = ("certificates/mydomain.crt", "certificates/mydomain.key")
     app.run(host="0.0.0.0", port="8090", debug=True, ssl_context=context)

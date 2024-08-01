@@ -24,19 +24,23 @@ def init_data() -> None:
     cur.execute("CREATE TABLE users(user, password, role)")
 
     # Ein paar Einträge ins Buch eintragen
-    cur.execute("""
+    cur.execute(
+        """
         INSERT INTO entries VALUES
         ("andreas", "Toll!", "2023-06-12"),
         ("bart", "Wonderful!!!", "2023-10-13"),
         ("CLAUDIA++", "Ich verstehe die Aufregung nicht", "2024-12-21")
-    """)
+    """
+    )
 
     # Das Login für den Admin setzen
     passwd_hash = generate_password_hash(config.ADMIN_PASSWORD)
-    cur.execute(f"""
+    cur.execute(
+        f"""
         INSERT INTO users VALUES
         ('admin', '{passwd_hash}', 'admin')
-    """)
+    """
+    )
     con.commit()
     cur.close()
     con.close()
@@ -46,9 +50,11 @@ def get_entries() -> list[Entry]:
     con = sqlite3.connect("guestbook.db")
 
     entries = []
-    cur = con.execute("""
+    cur = con.execute(
+        """
         SELECT * from entries LIMIT 5
-    """)
+    """
+    )
     resp = cur.fetchall()
     for entry in resp:
         entries.append(Entry(entry[0], entry[1], entry[2]))
@@ -60,8 +66,10 @@ def get_entries() -> list[Entry]:
 def add_entry(user: str, msg: str, date: str) -> None:
     con = sqlite3.connect("guestbook.db")
     cur = con.cursor()
-    cur.execute(f"""INSERT INTO entries VALUES
-        ('{user}', '{msg}', '{date}')""")
+    cur.execute(
+        f"""INSERT INTO entries VALUES
+        ('{user}', '{msg}', '{date}')"""
+    )
     con.commit()
     cur.close()
     con.close()

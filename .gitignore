@@ -171,4 +171,3 @@ cython_debug/
 
 # Do not store db in repo
 *.db
-
