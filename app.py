@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from flask import Flask, redirect, render_template, request, url_for
+from flask import Flask, redirect, render_template, request
 from flask_httpauth import HTTPBasicAuth
 
 import dbconnection as db
@@ -27,7 +27,7 @@ def logout():
     Wir wollen auf die Einstiegsseite zurück. Dazu könnten wir
     einen Redirect verwenden: return redirect("/"). Diese Funktion
     geht aber nur mit Statuscodes 3xx. Wir müssen aber den Code
-    401 zurückgeben, um dem Browser anzugeben, dass er den Login 
+    401 zurückgeben, um dem Browser anzugeben, dass er den Login
     vergessen soll. Daher nutzen wir eine leere Seite, die den
     Redirect im Meta-Tag macht. Dann ruft der Browser die Seite auf.
     Siehe: https://developer.mozilla.org/en-US/docs/Web/HTTP/Redirections

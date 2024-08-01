@@ -60,7 +60,7 @@ def get_entries() -> list[Entry]:
 def add_entry(user: str, msg: str, date: str) -> None:
     con = sqlite3.connect("guestbook.db")
     cur = con.cursor()
-    cur.execute(f"""INSERT INTO entries VALUES 
+    cur.execute(f"""INSERT INTO entries VALUES
         ('{user}', '{msg}', '{date}')""")
     con.commit()
     cur.close()
